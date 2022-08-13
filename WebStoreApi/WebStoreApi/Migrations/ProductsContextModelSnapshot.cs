@@ -24,8 +24,11 @@ namespace WebStoreApi.Migrations
             modelBuilder.Entity("WebStoreApi.ModelsEF.Product", b =>
                 {
                     b.Property<int>("ProductId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("ProductId");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
 
                     b.Property<string>("Category")
                         .IsRequired()
@@ -44,6 +47,10 @@ namespace WebStoreApi.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)")
                         .HasColumnName("Image");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float")
+                        .HasColumnName("Price");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -77,23 +84,26 @@ namespace WebStoreApi.Migrations
 
                     b.HasKey("RatingId");
 
+                    b.HasIndex("ProductId")
+                        .IsUnique();
+
                     b.ToTable("Rating", (string)null);
-                });
-
-            modelBuilder.Entity("WebStoreApi.ModelsEF.Product", b =>
-                {
-                    b.HasOne("WebStoreApi.ModelsEF.Rating", "Rating")
-                        .WithOne("Product")
-                        .HasForeignKey("WebStoreApi.ModelsEF.Product", "ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Rating");
                 });
 
             modelBuilder.Entity("WebStoreApi.ModelsEF.Rating", b =>
                 {
+                    b.HasOne("WebStoreApi.ModelsEF.Product", "Product")
+                        .WithOne("Rating")
+                        .HasForeignKey("WebStoreApi.ModelsEF.Rating", "ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("WebStoreApi.ModelsEF.Product", b =>
+                {
+                    b.Navigation("Rating");
                 });
 #pragma warning restore 612, 618
         }

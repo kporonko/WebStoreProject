@@ -18,10 +18,10 @@ namespace WebStoreApi.Data
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new RatingConfiguration());
 
-            modelBuilder.Entity<Rating>()
-                .HasOne(p => p.Product)
-                .WithOne(r => r.Rating)
-                .HasForeignKey<Product>(k => k.ProductId)
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Rating)
+                .WithOne(r => r.Product)
+                .HasForeignKey<Rating>(k => k.ProductId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

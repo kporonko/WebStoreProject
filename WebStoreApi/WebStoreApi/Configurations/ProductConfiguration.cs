@@ -40,6 +40,11 @@ namespace WebStoreApi.Configurations
                 .HasColumnType("varchar")
                 .HasMaxLength(100)
                 .IsRequired();
+            builder
+                .Property(x => x.Price)
+                .HasColumnName("Price")
+                .HasColumnType("float")
+                .IsRequired();
         }
     }
 }
