@@ -1,20 +1,24 @@
 export const fetchData = async () => {
-    const response = await fetch('https://fakestoreapi.com/products');
-                    // .then(res=>res.json())
-                    // .then(json=>console.log(json));
-                    console.log(response);
+
+    const response = await fetch('https://localhost:7254/api/Products/getAllProducts', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }});
+
     const body = await response.json();
 
     return body;
 }
 
 export const fetchDataById = async (id) => {
-    const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-    console.log("ID");
+    const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    };
 
-    console.log("ID" + response);
+    const response = await fetch(`https://localhost:7254/api/Products/prodById?id=${id}`, requestOptions);
     const body = await response.json();
-    console.log(body);
 
     return body;
 }
