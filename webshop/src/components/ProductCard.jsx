@@ -7,13 +7,12 @@ import {Link} from 'react-router-dom';
 
 
 export default function ProductCard({product, onAdd}) {
-    const idd = product.id;
   return (
     // <Link to={`/item/${product.id}`}>
         
     // </Link>
     <div className='item'>
-        <Link to={`/item/${product.id}`}><img src={product.image}/></Link>
+        <Link to={`/item/${product.productId}`}><img src={product.image}/></Link>
         <div className='desc'>
             <div className='title'>
                 <h2>{product.title}</h2>

@@ -12,15 +12,30 @@ namespace WebStoreApi.Controllers
         [HttpGet("getAllProducts")]
         public List<Product> GetProducts()
         {
-            List<Product> products = ContextProvider.db.Products.ToList();
-            return products;
+            try
+            {
+                List<Product> products = ContextProvider.db.Products.ToList();
+                return products;
+            }
+            catch (Exception)
+            {
+                return new List<Product>();
+            }
         }
 
         [HttpGet("prodById")]
         public Product ProductById(int id)
         {
-            Product product = ContextProvider.db.Products.ToList().First(p => p.ProductId == id);
-            return product;
+            try
+            {
+                Product product = ContextProvider.db.Products.ToList().First(p => p.ProductId == id);
+                return product;
+            }
+            catch (Exception)
+            {
+                return new Product();
+            }
+
         }
     }
 }

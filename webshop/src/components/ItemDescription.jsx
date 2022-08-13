@@ -16,13 +16,8 @@ export default function ItemDescription({onAdd, onDelete}) {
 
     useEffect(() => {
         const fetch = async () => {
-            console.log("EFFECT START")
             const res = await fetchDataById(id);
-            console.log("EFFECT")
-
-            console.log(res)
             setItemDescription(res)
-            console.log(res.rating)
             setObj(res.rating)
         }
         fetch();

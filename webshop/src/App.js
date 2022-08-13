@@ -24,18 +24,18 @@ function App() {
   }, [])
 
   const deleteOrder = (id) => {
-    setCart(cart.filter(order => order.id !== id));
+    setCart(cart.filter(order => order.productId !== id));
   }
 
   const addToCart = (product) => {
-    if (cart.find(item => item.id === product.id)) {
+    if (cart.find(item => item.productId === product.productId)) {
       return;
     }
     setCart([...cart, product]);
   }
   const deleteItem = (item) => {
-      deleteOrder(item.id);
-      setProducts(products.filter(product => item.id !== product.id))
+      deleteOrder(item.productId);
+      setProducts(products.filter(product => item.productId !== product.productId))
       return
   }
   return (

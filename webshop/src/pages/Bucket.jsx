@@ -14,7 +14,7 @@ export default function Bucket({bucketProducts, onDelete}) {
             <h2>{product.title}</h2>
             <h4>{product.description}</h4>
             <b>{product.price}$</b>
-            <Button onClick={() => onDelete(product.id)} className='button-delete' variant='danger'>Delete</Button>
+            <Button onClick={() => onDelete(product.productId)} className='button-delete' variant='danger'>Delete</Button>
         </div>
       </div>
     )) : <div>Cart is empty</div>}
