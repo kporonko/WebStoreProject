@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+  margin: 20px 60px;
+}
+.main{
+  display: flex;
+  justify-content: space-between;
+}
+.main ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+}
+.main ul li {
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.main ul li:hover{
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
+}
+
+.bucket-button:hover {
+  color: red;
+}
+.main-label {
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.main-label:hover{
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
+}
+
+main{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.item{
+  background-color: rgb(222, 217, 217);
+  max-width: 170px;
+  height: fit-content;
+  max-height: 20%;
+  border: 1px solid rgb(222, 217, 217);
+  position: relative;
+  overflow: hidden;
+}
+.item img{
+  width: 100%;
+  height: 200px;
+}
+.desc{
+  position: relative;
+  height: 50px;
+}
+.desc .title h2{
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.title{
+  max-height: 20px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+.to-flex{
+  display: flex;
+  bottom: 0%;
+  align-content: flex-end;
+  justify-content: space-between;
+}
+.to-flex div{
+  font-size: 14px;
+  font-weight: 600;
+  right:0;
+}
+
+.add-to-cart{
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  background: #333;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  line-height: 15px;
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: 600;
+}
+.add-to-cart:hover{
+  transform: scale(1.1);
+  transition: all 1s ease;
+}
+.item img:hover{
+  transform: scale(1.05);
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.image-center{
+  margin: 20px 0;
+  position: relative;
+}
+.image-center img{
+  width: 100%;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+}
+.image-center p {
+  left: 5%;
+  top: 10%;
+  position: absolute;
+  color: #fff;
+  font-size: 40px;
+}
+.link{
+  text-decoration: none;
+  color: #000;
+}
+.cart-item{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 20px;
+  background-color: rgb(209, 212, 212);
+  padding: 20px;
+  border-radius: 30px;
+}
+.cart-item img{
+  min-width: 200px;
+  width: 200px;
+  height: 200px;
+  min-height: 200px;
+  border-radius: 30px;
+}
+.cart-desc h2{
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+.cart-desc h4{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.cart-desc b{
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: rgb(123, 120, 120);
+}
+h1.center{
+  text-align: center;
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+footer{
+  background: #222;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 20px;
+}
+.button-delete{
+  font-size: large;
+  float: right;
+  margin-right: 15px;
+  color: #fff;
+  background: rgb(226, 8, 8);
+  border: none;
+  cursor: pointer;
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+.button-delete:hover{
+  background: red;
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
+}
+.full-center{
+  margin-top: 30px;
+  display: block;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid black;
+}
+.full-desc{
+  max-width: 80%;
+  margin: auto;
+}
+.full-desc div{
+  font-size: 20px;
+  margin: 10px 0;
+  text-align: center;
+}
+.full-desc h2{
+  margin-top: 20px;
+  text-align: center;
+}
+.full-desc span{
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 20px;
+}
+.div-center-button .button-center{
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  background: green;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 0 0 30px 30px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+}
+.div-center-button{
+  display: flex;
+  justify-content: center;
+}
+.red{
+  background-color: red!important;
+  border-radius: 30px 30px 0 0 !important;
+  text-decoration: none;
+}
