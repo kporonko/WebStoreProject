@@ -12,12 +12,15 @@ import Categories from "./Categories";
 export default function ProductList({products, onAdd }) {
 
 
-    // here
-    console.log(products) // ok array[27]
     let [currentProductsCategory, setCurrentProductsCategory] = useState(products)
-    console.log(currentProductsCategory) // empty
 
-
+    useEffect(() => {
+        const fetchProductsData = async () => {
+            const res = await fetchData();
+            setCurrentProductsCategory(res);
+        }
+        fetchProductsData();
+    }, [])
 
 
     const [currentCategory, setCurrentCategory] = useState('all');
