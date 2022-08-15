@@ -26,8 +26,8 @@ const SearchProducts = ({products, onAdd}) => {
         if (search) {
             searchedProducts = products.filter(
                 (prod) =>
-                    prod.title.includes(search) ||
-                    prod.description.includes(search)
+                    prod.title.toLowerCase().includes(search) ||
+                    prod.description.toLowerCase().includes(search)
             );
             setSearchedProducts(searchedProducts)
             setIsSearched(true)
