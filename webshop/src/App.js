@@ -23,6 +23,7 @@ function App() {
       fetchProductsData();
   }, [])
 
+
   const deleteOrder = (id) => {
     setCart(cart.filter(order => order.productId !== id));
   }

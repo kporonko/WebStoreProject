@@ -56,12 +56,12 @@ const SearchProducts = ({products, onAdd}) => {
                 )) : isSearched ? <div>No results...</div> : ''}
             </Box>
             <Box mt={4} style={{display: 'flex', justifyContent: 'center'}}>
-                <Pagination
+                {(isSearched && currentSearchedProducts.length > 0) && <Pagination
                     defaultPage={1}
                     count={Math.ceil(searchedProducts.length / 12)}
                     page={currentPage}
                     onChange={paginate}
-                />
+                />}
             </Box>
         </Stack>
     );

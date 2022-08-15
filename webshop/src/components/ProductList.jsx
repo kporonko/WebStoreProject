@@ -11,9 +11,17 @@ import Categories from "./Categories";
 
 export default function ProductList({products, onAdd }) {
 
-    const [currentProductsCategory, setCurrentProductsCategory] = useState(products);
-    const [currentCategory, setCurrentCategory] = useState('all');
 
+    // here
+    console.log(products) // ok array[27]
+    let [currentProductsCategory, setCurrentProductsCategory] = useState(products)
+    console.log(currentProductsCategory) // empty
+
+
+
+
+    const [currentCategory, setCurrentCategory] = useState('all');
+    console.log(currentCategory)
     function chooseCategory(category){
         console.log("Start" + category)
         if(category === 'all'){
@@ -27,6 +35,7 @@ export default function ProductList({products, onAdd }) {
     }
 
 
+
     const [currentPage, setCurrentPage] = useState(1)
     const indexOfLastProduct = currentPage * 12;
     const indexOfFirstProduct = indexOfLastProduct - 12;
@@ -36,8 +45,6 @@ export default function ProductList({products, onAdd }) {
         setCurrentPage(value);
         window.scrollTo({ top: 1800, behavior: 'smooth' });
     };
-
-
   return (
       <div>
           <Categories products={currentProducts} chooseCategory={chooseCategory}/>
