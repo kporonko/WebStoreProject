@@ -53,7 +53,7 @@ const SearchProducts = ({products, onAdd}) => {
             <Box className='box'>
                 {currentSearchedProducts.length > 0 ? (currentSearchedProducts.map((prod) =>
                     <ProductCard key={prod.productId} product={prod} onAdd={onAdd}/>
-                )) : <div>No results...</div>}
+                )) : isSearched ? <div>No results...</div> : ''}
             </Box>
             <Box mt={4} style={{display: 'flex', justifyContent: 'center'}}>
                 <Pagination
