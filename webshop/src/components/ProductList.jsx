@@ -24,24 +24,25 @@ export default function ProductList({products, onAdd }) {
 
 
     const [currentCategory, setCurrentCategory] = useState('all');
-    console.log(currentCategory)
     function chooseCategory(category){
-        console.log("Start" + category)
         if(category === 'all'){
             setCurrentCategory(category)
             setCurrentProductsCategory(products);
+            setCurrentPage(1);
+
             return;
         }
+        setCurrentPage(1);
+
         setCurrentCategory(category)
-        console.log(currentProductsCategory)
         setCurrentProductsCategory(products.filter(item => item.category === category));
     }
 
 
 
     const [currentPage, setCurrentPage] = useState(1)
-    const indexOfLastProduct = currentPage * 12;
-    const indexOfFirstProduct = indexOfLastProduct - 12;
+    const indexOfLastProduct = currentPage * 9;
+    const indexOfFirstProduct = indexOfLastProduct - 9;
     const currentProducts = currentProductsCategory.slice(indexOfFirstProduct, indexOfLastProduct);
 
     const paginate = (event, value) => {
@@ -60,7 +61,7 @@ export default function ProductList({products, onAdd }) {
           <Box mt={4} style={{display: 'flex', justifyContent: 'center'}}>
               <Pagination
                   defaultPage={1}
-                  count={Math.ceil(currentProductsCategory.length / 12)}
+                  count={Math.ceil(currentProductsCategory.length / 9)}
                   page={currentPage}
                   onChange={paginate}
               />

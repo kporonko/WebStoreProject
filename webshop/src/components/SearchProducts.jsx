@@ -13,8 +13,8 @@ const SearchProducts = ({products, onAdd}) => {
 
     let [isSearched, setIsSearched] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
-    const indexOfLastProduct = currentPage * 12;
-    const indexOfFirstProduct = indexOfLastProduct - 12;
+    const indexOfLastProduct = currentPage * 9;
+    const indexOfFirstProduct = indexOfLastProduct - 9;
     const currentSearchedProducts = searchedProducts.slice(indexOfFirstProduct, indexOfLastProduct);
     const paginate = (event, value) => {
         setCurrentPage(value);
@@ -58,7 +58,7 @@ const SearchProducts = ({products, onAdd}) => {
             <Box mt={4} style={{display: 'flex', justifyContent: 'center'}}>
                 {(isSearched && currentSearchedProducts.length > 0) && <Pagination
                     defaultPage={1}
-                    count={Math.ceil(searchedProducts.length / 12)}
+                    count={Math.ceil(searchedProducts.length / 9)}
                     page={currentPage}
                     onChange={paginate}
                 />}
