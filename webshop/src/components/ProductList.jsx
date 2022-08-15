@@ -6,25 +6,42 @@ import { useState } from 'react';
 import ProductCard from './ProductCard';
 import Link from 'react-router-dom';
 import {Pagination, Box} from "@mui/material";
+import Categories from "./Categories";
 
 
-export default function ProductList({products, onAdd}) {
+export default function ProductList({products, onAdd }) {
+
+    const [currentProductsCategory, setCurrentProductsCategory] = useState(products);
+    const [currentCategory, setCurrentCategory] = useState('all');
+
+    function chooseCategory(category){
+        console.log("Start" + category)
+        if(category === 'all'){
+            setCurrentCategory(category)
+            setCurrentProductsCategory(products);
+            return;
+        }
+        setCurrentCategory(category)
+        console.log(currentProductsCategory)
+        setCurrentProductsCategory(products.filter(item => item.category === category));
+    }
+
+
     const [currentPage, setCurrentPage] = useState(1)
     const indexOfLastProduct = currentPage * 12;
     const indexOfFirstProduct = indexOfLastProduct - 12;
-    const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-    console.log(products)
+    const currentProducts = currentProductsCategory.slice(indexOfFirstProduct, indexOfLastProduct);
 
     const paginate = (event, value) => {
         setCurrentPage(value);
-
         window.scrollTo({ top: 1800, behavior: 'smooth' });
     };
 
+
   return (
       <div>
-          <h1 style={{marginBottom: '20px'}}>All Products</h1>
-
+          <Categories products={currentProducts} chooseCategory={chooseCategory}/>
+          <h1 style={{marginBottom: '20px'}}><span style={{marginLeft: '20px'}}>Category: {currentCategory}</span></h1>
           <main>
               {currentProducts.length > 0 ? currentProducts.map(product => (
                   <ProductCard onAdd={onAdd} key={product.productId} product={product}/>
@@ -33,7 +50,7 @@ export default function ProductList({products, onAdd}) {
           <Box mt={4} style={{display: 'flex', justifyContent: 'center'}}>
               <Pagination
                   defaultPage={1}
-                  count={Math.ceil(products.length / 12)}
+                  count={Math.ceil(currentProductsCategory.length / 12)}
                   page={currentPage}
                   onChange={paginate}
               />

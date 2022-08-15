@@ -6,8 +6,10 @@ import { fetchData } from '../fetch/fetchData';
 import { useState } from 'react';
 import ProductList from '../components/ProductList';
 import SearchProducts from "../components/SearchProducts";
+import Categories from "../components/Categories";
 
 export default function Home({products, onAdd}) {
+
 
   return (
     <div>

@@ -250,3 +250,16 @@ footer{
   transform: scale(1.05);
   transition: all 1s ;
 }
+.categories{
+  margin-top: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+.categories div{
+  display: inline-block;
+  background-color: #f2f2f2;
+  border-radius: 50px;
+  margin: 0 15px 25px 0;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}

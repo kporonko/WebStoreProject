@@ -12,8 +12,8 @@ import ItemDescription from './components/ItemDescription';
 
 function App() {
 
-  const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
+    const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState([]);
 
   useEffect(() => {
       const fetchProductsData = async () => {
