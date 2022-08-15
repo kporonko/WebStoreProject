@@ -19,7 +19,7 @@ const SearchProducts = ({products, onAdd}) => {
     const paginate = (event, value) => {
         setCurrentPage(value);
 
-        window.scrollTo({ top: 300, behavior: 'smooth' });
+        window.scrollTo({ top: 760, behavior: 'smooth' });
     };
 
     const handleSearch = async () => {
@@ -41,7 +41,7 @@ const SearchProducts = ({products, onAdd}) => {
             <Typography mb="30px" fontWeight={700} sx={{fontSize: {lg: '44px', xs: '30px'}}} textAlign="center">
                 Search for products<br/>
             </Typography>
-            <Box position="relative" mb="72px">
+            <Box position="relative" mb="32px">
                 <TextField sx={{input: {fontWeight: '700', border: 'none', borderRadius: '4px'}, width: {lg: '900px', xs: '350px'}, borderRadius:"40px", backgroundColor: '#fff'}} height ="76px" value={search} onChange={(e) => {setSearch(e.target.value.toLowerCase())}} placeholder='Search products...' type="text"/>
                 <Button className="hover-none" onClick={handleSearch}
                         sx={{bgcolor: 'black', color: '#fff', textTransform: 'none', width: {lg: '175px', xs: '12px'}, fontSize:{lg: '20px', xs: '14px'}, height: '56px', position: "absolute", right: '0'}}

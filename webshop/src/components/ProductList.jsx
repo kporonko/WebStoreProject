@@ -47,7 +47,7 @@ export default function ProductList({products, onAdd }) {
 
     const paginate = (event, value) => {
         setCurrentPage(value);
-        window.scrollTo({ top: 1800, behavior: 'smooth' });
+        window.scrollTo({ top: 2300, behavior: 'smooth' });
     };
   return (
       <div>
