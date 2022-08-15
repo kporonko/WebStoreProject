@@ -11,7 +11,6 @@ import ShopDesc from "../components/ShopDesc";
 
 export default function Home({products, onAdd}) {
 
-
   return (
     <div>
         <ShopDesc/>

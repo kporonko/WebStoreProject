@@ -29,6 +29,7 @@ function App() {
   }
 
   const addToCart = (product) => {
+      console.log(product);
     if (cart.find(item => item.productId === product.productId)) {
       return;
     }
