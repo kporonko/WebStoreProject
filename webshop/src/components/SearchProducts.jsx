@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Box, Button, Pagination, Stack, TextField, Typography} from "@mui/material";
 import {fetchData} from "../fetch/fetchData";
 import ProductCard from "./ProductCard";
@@ -18,10 +18,10 @@ const SearchProducts = ({products, onAdd}) => {
     const currentSearchedProducts = searchedProducts.slice(indexOfFirstProduct, indexOfLastProduct);
     const paginate = (event, value) => {
         setCurrentPage(value);
-
-        window.scrollTo({ top: 760, behavior: 'smooth' });
+        refSearch.current.scrollIntoView()
     };
 
+    const refSearch = useRef(null)
     const handleSearch = async () => {
         if (search) {
             searchedProducts = products.filter(
@@ -38,7 +38,7 @@ const SearchProducts = ({products, onAdd}) => {
 
     return (
         <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
-            <Typography mb="30px" fontWeight={700} sx={{fontSize: {lg: '44px', xs: '30px'}}} textAlign="center">
+            <Typography ref={refSearch} mb="30px" fontWeight={700} sx={{fontSize: {lg: '44px', xs: '30px'}}} textAlign="center">
                 Search for products<br/>
             </Typography>
             <Box position="relative" mb="32px">

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import { useEffect } from 'react';
 import '../App.css';
 import { fetchData } from '../fetch/fetchData';
@@ -45,14 +45,15 @@ export default function ProductList({products, onAdd }) {
     const indexOfFirstProduct = indexOfLastProduct - 9;
     const currentProducts = currentProductsCategory.slice(indexOfFirstProduct, indexOfLastProduct);
 
+    const refList = useRef(null)
     const paginate = (event, value) => {
         setCurrentPage(value);
-        window.scrollTo({ top: 2300, behavior: 'smooth' });
+        refList.current.scrollIntoView({behavior: 'smooth'})
     };
   return (
       <div>
           <Categories products={currentProducts} chooseCategory={chooseCategory}/>
-          <h1 style={{marginBottom: '20px'}}><span style={{marginLeft: '20px'}}>Category: {currentCategory}</span></h1>
+          <h1 ref={refList} style={{marginBottom: '20px'}}><span style={{marginLeft: '20px'}}>Category: {currentCategory}</span></h1>
           <main>
               {currentProducts.length > 0 ? currentProducts.map(product => (
                   <ProductCard onAdd={onAdd} key={product.productId} product={product}/>
