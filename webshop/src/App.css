@@ -46,7 +46,9 @@ main{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10px;
+  width: 100%;
+  gap: 70px;
+  padding: 20px;
 }
 .item{
   background-color: rgb(222, 217, 217);
@@ -239,7 +241,9 @@ footer{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10px;
+  width: 100%;
+  gap: 50px;
+  align-items: center;
 }
 .hover-none:hover{
   background-color: black!important;
