@@ -60,12 +60,13 @@ function App() {
     }
     setCart([...cart, product]);
   }
+
   let nav=useNavigate()
   const deleteItem = async (id) => {
       setCart(cart.filter(order => order.productId !== id));
       setProducts(products.filter(product => product.productId !== id))
       await deleteProduct(id);
-      nav('/')
+      nav('/admin')
   }
 
   return (

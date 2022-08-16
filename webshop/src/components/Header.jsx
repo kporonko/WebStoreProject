@@ -4,7 +4,7 @@ import {MdAccountCircle} from 'react-icons/md'
 import { Link } from 'react-router-dom'
 export default function Header() {
   return (
-    <div className="main">
+    <div className="header-div">
         <div className='main-label'>
           <Link to={'/'}  className='link'>
             My Store

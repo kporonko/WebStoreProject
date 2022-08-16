@@ -9,22 +9,23 @@
 body{
   margin: 20px 60px;
 }
-.main{
+.header-div{
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
 }
-.main ul {
+.header-div ul {
   list-style: none;
   display: flex;
   gap: 20px;
   font-size: 20px;
 }
-.main ul li {
+.header-div ul li {
   display: inline-block;
   margin-right: 10px;
   cursor: pointer;
 }
-.main ul li:hover{
+.header-div ul li:hover{
   transform: scale(1.1);
   transition: all 0.5s ease-in-out;
 }
@@ -366,4 +367,19 @@ footer{
   padding: 10px 20px;
   cursor: pointer;
   border: 1px solid transparent;
+}
+.div-price-green{
+  display: inline!important;
+  font-weight: 600;
+  color: green;
+}
+.div-price-yellow{
+  font-weight: 600;
+  display: inline!important;
+  color: #ecec23;
+}
+.div-price-red{
+  font-weight: 600;
+  display: inline!important;
+  color: red;
 }

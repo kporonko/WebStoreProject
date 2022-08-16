@@ -60,7 +60,13 @@ const AdminPage = ({categories}) => {
                     </p>
                     <p>
                         <label htmlFor="">Category</label>
-                        <input onChange={(e) => setFormInfo({...formInfo, category: e.target.value})} type="text" value={formInfo.category}/>
+                        <select name="" id="" onChange={(e) => setFormInfo({...formInfo, category: e.target.value})}>
+                            <option value="electronics">electronics</option>
+                            <option value="men's clothing">men's clothing</option>
+                            <option value="women's clothing">women's clothing</option>
+                            <option value="jewelery">jewelery</option>
+                        </select>
+                        {/*<input onChange={(e) => setFormInfo({...formInfo, category: e.target.value})} type="text" value={formInfo.category}/>*/}
                     </p>
                     <p>
                         <label htmlFor="">Price</label>
