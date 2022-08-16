@@ -55,7 +55,6 @@ function App() {
   }
 
   const addToCart = (product) => {
-      console.log(product);
     if (cart.find(item => item.productId === product.productId)) {
       return;
     }
@@ -63,6 +62,8 @@ function App() {
   }
   let nav=useNavigate()
   const deleteItem = async (id) => {
+      setCart(cart.filter(order => order.productId !== id));
+      setProducts(products.filter(product => product.productId !== id))
       await deleteProduct(id);
       nav('/')
   }
