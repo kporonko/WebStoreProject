@@ -4,7 +4,7 @@ import './App.css';
 import {deleteProduct, fetchData} from './fetch/fetchData';
 import { useState } from 'react';
 import Home from './pages/Home';
-import { Route, Routes } from 'react-router-dom';
+import {Route, Routes, useNavigate} from 'react-router-dom';
 import Header from './components/Header';
 import Bucket from './pages/Bucket';
 import Footer from './components/Footer';
@@ -61,20 +61,10 @@ function App() {
     }
     setCart([...cart, product]);
   }
-
+  let nav=useNavigate()
   const deleteItem = async (id) => {
-      console.log("BEFORE")
-      console.log(id)
-      console.log(products)
-      console.log(cart)
-      setCart(cart.filter(order => order.productId !== id));
-      setProducts(products.filter(product => id !== product.productId))
       await deleteProduct(id);
-      console.log("AFTER")
-      console.log(id)
-      console.log(products)
-      console.log(cart)
-
+      nav('/')
   }
 
   return (
