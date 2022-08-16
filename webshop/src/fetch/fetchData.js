@@ -22,24 +22,11 @@ export const fetchDataById = async (id) => {
 
     return body;
 }
-export const insertProduct = async (title,description, category, price, image,rate, count, ) => {
-    console.log("Start fetch: ")
-
+export const insertProduct = async (title, description, category, price, image,rate, count, ) => {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title: {title}, category: {category}, price: {price}, image: {image}, description: {description}, rate: {rate}, count: {count} })
+        body: JSON.stringify({ title: title, description: description, category: category, price: price, image: image, rate: rate, count: count })
     };
-
-    console.log('requestOptions')
-    console.log(requestOptions)
     const response = await fetch(`https://localhost:7254/api/Products/newProduct`, requestOptions);
-    console.log("Response inside fetch: ")
-    console.log(response)
-    const body = await response.json();
-
-    console.log("Body inside fetch: ")
-    console.log(body)
-    console.log("End fetch: ")
-    return body;
 }

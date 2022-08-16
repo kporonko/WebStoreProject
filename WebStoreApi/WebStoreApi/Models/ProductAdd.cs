@@ -9,6 +9,7 @@ namespace WebStoreApi.Models
         public string Category { get; set; } = null!;
         public double Price { get; set; }
         public string Image { get; set; } = null!;
-        public virtual RatingAdd? Rating { get; set; }
+        public double Rate { get; set; }
+        public int Count { get; set; }
     }
 }
