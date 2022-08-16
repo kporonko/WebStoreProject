@@ -9,7 +9,7 @@ import {Pagination, Box} from "@mui/material";
 import Categories from "./Categories";
 
 
-export default function ProductList({products, onAdd }) {
+export default function ProductList({products, categories, onAdd }) {
 
 
     let [currentProductsCategory, setCurrentProductsCategory] = useState(products)
@@ -52,7 +52,7 @@ export default function ProductList({products, onAdd }) {
     };
   return (
       <div>
-          <Categories products={currentProducts} chooseCategory={chooseCategory}/>
+          <Categories categories={categories} chooseCategory={chooseCategory}/>
           <h1 ref={refList} style={{marginBottom: '20px'}}><span style={{marginLeft: '20px'}}>Category: {currentCategory}</span></h1>
           <main>
               {currentProducts.length > 0 ? currentProducts.map(product => (

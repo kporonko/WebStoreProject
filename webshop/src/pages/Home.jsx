@@ -9,13 +9,13 @@ import SearchProducts from "../components/SearchProducts";
 import Categories from "../components/Categories";
 import ShopDesc from "../components/ShopDesc";
 
-export default function Home({products, onAdd}) {
+export default function Home({products, categories, onAdd}) {
 
   return (
     <div>
         <ShopDesc/>
         <SearchProducts onAdd={onAdd} products={products}/>
-        <ProductList onAdd={onAdd} products={products}/>
+        <ProductList categories={categories} onAdd={onAdd} products={products}/>
     </div>
   )
 }
