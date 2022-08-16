@@ -4,22 +4,41 @@ import {useEffect} from "react";
 import {fetchData} from "../fetch/fetchData";
 import ProductList from "../components/ProductList";
 import SearchProducts from "../components/SearchProducts";
+import {insertProduct} from "../fetch/fetchData"
+
 const AdminPage = ({categories}) => {
 
     const [formInfo, setFormInfo] = useState({
         title: "",
         category: "",
         price: 0,
+        count: 0,
+        rate: 0,
         image: "",
         desc: "",
+
     })
 
-    const handleSubmit = (e) => {
-        console.log("Handle event")
+    const handleSubmit = async (e) => {
+        let isCategory = false;
+        console.log("Start handle")
         e.preventDefault();
         categories.forEach((item) => {
-            console.log(item)
+            if (item.key === formInfo.category){
+                isCategory = true;
+            }
         })
+        if (!isCategory){
+            console.log("Category NOT found");
+            return;
+        }
+        else{
+            console.log("Category found");
+            const res = await insertProduct(formInfo.title, formInfo.description, formInfo.category, formInfo.price, formInfo.image,formInfo.rate, formInfo.count);
+            console.log("Inside handle: ")
+            console.log(res)
+            console.log("End of handle: ")
+        }
     }
 
     let [products, setProducts] = useState([])
@@ -50,6 +69,7 @@ const AdminPage = ({categories}) => {
                     <p>
                         <label htmlFor="">Price</label>
                         <input onChange={(e) =>{
+
                             if ( !isNaN(+e.target.value)){
                                 setFormInfo({...formInfo, price: +e.target.value})
                             }
@@ -60,12 +80,26 @@ const AdminPage = ({categories}) => {
                         <input onChange={(e) =>{ setFormInfo({...formInfo, image: e.target.value})
                         }} type="text" value={formInfo.image}/>
                     </p>
+                    <p>
+                        <label htmlFor="">Rate</label>
+                        <input onChange={(e) =>{
+                            if ( !isNaN(+e.target.value)){
+                                setFormInfo({...formInfo, rate: +e.target.value})
+                            }
+                        }} type="text" value={formInfo.rate}/>                    </p>
+                    <p>
+                        <label htmlFor="">Count</label>
+                        <input onChange={(e) =>{
+                            if ( !isNaN(+e.target.value)){
+                                setFormInfo({...formInfo, count: +e.target.value})
+                            }
+                        }} type="text" value={formInfo.count}/>                    </p>
                     <p className="full-width">
                         <label htmlFor="">Description</label>
                         <textarea onChange={(e) => setFormInfo({...formInfo, desc: e.target.value})} value={formInfo.desc} name="" id="" cols="30" rows="7"></textarea>
                     </p>
                     <p className="full-width buttonwrapper">
-                        <button style={{cursor: 'default'}} disabled={!(formInfo.image && formInfo.price && formInfo.desc && formInfo.title && formInfo.category)} className = {(formInfo.image && formInfo.price && formInfo.desc && formInfo.title && formInfo.category) ? ' black' : ''} type='submit'>Send</button>
+                        <button style={{cursor: 'default'}} disabled={!(formInfo.count > 0 && formInfo.rate > 0 && formInfo.image && formInfo.price && formInfo.desc && formInfo.title && formInfo.category)} className = {(formInfo.count > 0 && formInfo.rate > 0 && formInfo.image && formInfo.price && formInfo.desc && formInfo.title && formInfo.category) ? ' black' : ''} type='submit'>Send</button>
                     </p>
                 </form>
             </div>
