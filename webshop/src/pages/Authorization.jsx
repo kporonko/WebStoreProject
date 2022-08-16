@@ -34,7 +34,7 @@ const Authorization = () => {
                     <p>MultiStore</p>
                     <img src="https://www.homestratosphere.com/wp-content/uploads/2019/01/Home-decor-features-in-the-house-jan22.jpg" className="logo" alt="Business view - Reports" />
                 </div>
-                <form className="form" onSubmit={handleSubmit}>
+                <form className="form-auth" onSubmit={handleSubmit}>
                     <div className="input-group">
                         <label htmlFor="email">Email</label>
                         <input type="email" name="email" placeholder="nome@email.com.br" />

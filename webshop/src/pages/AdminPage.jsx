@@ -38,7 +38,7 @@ const AdminPage = ({categories}) => {
                 {formInfo.image && <div className='img-wrapper'>
                     <img src={formInfo.image} alt=""/>
                 </div>}
-                <form onSubmit={handleSubmit} action="">
+                <form className='form-admin' onSubmit={handleSubmit} action="">
                     <p>
                         <label htmlFor="">Title</label>
                         <input onChange={(e) => setFormInfo({...formInfo, title: e.target.value})} type="text" value={formInfo.title}/>
