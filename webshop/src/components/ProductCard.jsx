@@ -7,13 +7,13 @@ import {Link} from 'react-router-dom';
 import {FaShoppingCart} from "react-icons/fa";
 
 
-export default function ProductCard({product, onAdd}) {
+export default function ProductCard({ isAdmin, product, onAdd}) {
   return (
     // <Link to={`/item/${product.id}`}>
 
     // </Link>
     <div className="product-div">
-        <div className='img-div'><Link to={`/item/${product.productId}`}><img src={product.image}/></Link></div>
+        <div className='img-div'><Link to={isAdmin ? `/admin/item/${product.productId}` : `/item/${product.productId}`}><img src={product.image}/></Link></div>
         <div className="title">
             <h2>{product.title}</h2>
         </div>

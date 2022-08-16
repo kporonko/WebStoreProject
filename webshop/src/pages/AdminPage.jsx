@@ -104,8 +104,8 @@ const AdminPage = ({categories}) => {
                 </form>
             </div>
             <div>
-                <SearchProducts products={products} onAdd={()=>{}}/>
-                <ProductList categories={categories} products={products} onAdd={()=>{}}/>
+                <SearchProducts isAdmin={true} products={products} onAdd={()=>{}}/>
+                <ProductList isAdmin={true} categories={categories} products={products} onAdd={()=>{}}/>
             </div>
         </div>
 

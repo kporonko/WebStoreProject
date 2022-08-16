@@ -2,11 +2,12 @@ import React from 'react'
 import {fetchDataById} from "../fetch/fetchData";
 import { useEffect, useState } from 'react';
 import {Link, useParams} from "react-router-dom";
-import { Button } from 'react-bootstrap';
+import AddProductInCartButton from "./AddProductInCartButton";
+import DeleteProductButton from "./DeleteProductButton";
 
 
 
-export default function ItemDescription({onAdd, onDelete}) {
+export default function ItemDescription({isAdmin, onAdd, onDelete}) {
 
     const [itemDescription, setItemDescription] = useState({})
 
@@ -36,18 +37,8 @@ export default function ItemDescription({onAdd, onDelete}) {
         <div>Items left: {obj.count}</div>   
         <div><strong>Price: {itemDescription.price}$</strong></div>   
       </div>
-        <div className='div-center-button'>
-            <Button onClick={() => {
-                onDelete(itemDescription)
-            }} className='button-center red'>
-                <Link to={'/'}>Delete</Link>
-            </Button>
-        </div>
-          <div className='div-center-button'>
-              <Button onClick={() => onAdd(itemDescription)} className='button-center'>
-                Add To cart
-              </Button>
-          </div>
+        {isAdmin ? <DeleteProductButton onDelete={onDelete}/> :
+        <AddProductInCartButton onAdd={onAdd} itemDescription={itemDescription}/>}
     </div>
   )
 }

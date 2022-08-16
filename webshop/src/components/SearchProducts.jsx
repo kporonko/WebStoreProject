@@ -4,7 +4,7 @@ import {fetchData} from "../fetch/fetchData";
 import ProductCard from "./ProductCard";
 
 
-const SearchProducts = ({products, onAdd}) => {
+const SearchProducts = ({isAdmin, products, onAdd}) => {
 
     const [search, setSearch] = useState('');
     let [currSearch, setCurrSearch] = useState('')
@@ -52,7 +52,7 @@ const SearchProducts = ({products, onAdd}) => {
             {isSearched? <h2 style={{display: 'block', margin: '20px 20px', textAlign: 'center'}}>Searched results on request '<i>{currSearch}</i> '<br/>Found {searchedProducts.length} results:</h2> : ''}
             <Box className='box'>
                 {currentSearchedProducts.length > 0 ? (currentSearchedProducts.map((prod) =>
-                    <ProductCard key={prod.productId} product={prod} onAdd={onAdd}/>
+                    <ProductCard isAdmin={isAdmin} key={prod.productId} product={prod} onAdd={onAdd}/>
                 )) : isSearched ? <div>No results...</div> : ''}
             </Box>
             <Box mt={4} style={{display: 'flex', justifyContent: 'center'}}>
