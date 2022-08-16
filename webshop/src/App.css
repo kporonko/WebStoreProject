@@ -46,7 +46,9 @@ main{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10px;
+  width: 100%;
+  gap: 70px;
+  padding: 20px;
 }
 .item{
   background-color: rgb(222, 217, 217);
@@ -57,9 +59,31 @@ main{
   position: relative;
   overflow: hidden;
 }
-.item img{
+.product-div{
+  height: fit-content;
+  max-width: 300px;
+  width: 300px;
+  position: relative;
+}
+.hover{
+  padding: 5px 5px 0px 5px;
+  font-size: 20px;
+  transition: all 0.7s ease;
+}
+.hover:hover{
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+}
+.img-div img{
   width: 100%;
-  height: 200px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border-radius: 5px 5px 0 0;
+  width: 300px;
+  height: 350px;
+}
+.absolute-span:hover{
+  cursor: pointer;
 }
 .desc{
   position: relative;
@@ -71,10 +95,18 @@ main{
   margin-bottom: 0;
 }
 .title{
-  max-height: 20px;
-  overflow: hidden;
-  margin-bottom: 5px;
+  font-size: 14px;
+  margin: 10px 0 10px 0;
 }
+.title h2{
+  font-weight: 400;
+}
+.description{
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
 .to-flex{
   display: flex;
   bottom: 0%;
@@ -82,7 +114,7 @@ main{
   justify-content: space-between;
 }
 .to-flex div{
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   right:0;
 }
@@ -122,11 +154,84 @@ main{
 }
 .image-center p {
   left: 5%;
-  top: 10%;
+  padding: 2px 7px;
+  top: 30%;
   position: absolute;
+  background-color: white;
   color: #fff;
-  font-size: 40px;
+  font-weight: 600;
+  color: black;
+  font-size: 44px;
 }
+.image-center b {
+  padding: 2px 7px;
+  left: 5%;
+  top: 42%;
+  position: absolute;
+  background-color: white;
+  color: #fff;
+  font-weight: 600;
+  color: black;
+  font-size: 44px;
+}
+.wrapper{
+  position: absolute;
+  left: 84%;
+  top: 70%;
+}
+
+
+
+/*  Button animation  */
+.absolute-span{
+  position: absolute;
+  display: inline-flex;
+  width: 180px;
+  height: 55px;
+  margin: 0 15px;
+  perspective: 1000px;
+  left: 75%;
+  top: 70%;
+}
+.absolute-span a{
+  font-size: 19px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform .25s;
+  font-family: 'Montserrat', sans-serif;
+
+}
+span a:before,
+span a:after{
+  position: absolute;
+  content: "Let's start";
+  height: 55px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid black;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+span a:before{
+  color: #fff;
+  background: #000;
+  transform: rotateY(0deg) translateZ(25px);
+}
+span a:after{
+  color: #000;
+  transform: rotateX(90deg) translateZ(25px);
+}
+span a:hover{
+  transform: translateZ(-25px) rotateX(-90deg);
+}
+
+/**/
+
+
+
 .link{
   text-decoration: none;
   color: #000;
@@ -234,4 +339,30 @@ footer{
   background-color: red!important;
   border-radius: 30px 30px 0 0 !important;
   text-decoration: none;
+}
+.box{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 50px;
+  align-items: center;
+}
+.hover-none:hover{
+  background-color: black!important;
+  transform: scale(1.05);
+  transition: all 1s ;
+}
+.categories{
+  margin-top: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+.categories div{
+  display: inline-block;
+  background-color: #f2f2f2;
+  border-radius: 50px;
+  margin: 0 15px 25px 0;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
 }

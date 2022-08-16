@@ -12,13 +12,10 @@ export default function ItemDescription({onAdd, onDelete}) {
 
     const {id} = useParams()
 
-    const [obj, setObj] = useState({})
-
     useEffect(() => {
         const fetch = async () => {
             const res = await fetchDataById(id);
             setItemDescription(res)
-            setObj(res.rating)
         }
         fetch();
 
@@ -32,8 +29,8 @@ export default function ItemDescription({onAdd, onDelete}) {
         <h2>{itemDescription.title}</h2>
         <span>{itemDescription.description}</span>
         <div>Category: {itemDescription.category}</div>
-        <div>Item rate: {obj.rate}</div>   
-        <div>Items left: {obj.count}</div>   
+        <div>Item rate: {itemDescription.rate}</div>
+        <div>Items left: {itemDescription.count}</div>
         <div><strong>Price: {itemDescription.price}$</strong></div>   
       </div>
         <div className='div-center-button'>

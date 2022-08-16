@@ -22,3 +22,11 @@ export const fetchDataById = async (id) => {
 
     return body;
 }
+export const insertProduct = async (title, description, category, price, image,rate, count, ) => {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: title, description: description, category: category, price: price, image: image, rate: rate, count: count })
+    };
+    const response = await fetch(`https://localhost:7254/api/Products/newProduct`, requestOptions);
+}
