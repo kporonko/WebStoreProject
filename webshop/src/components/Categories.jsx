@@ -3,8 +3,6 @@ import { useState } from 'react'
 
 export default function Categories({chooseCategory, categories}) {
 
-console.log(categories)
-
   return (
     <div className='categories'>
         {categories.map(category => (

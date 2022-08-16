@@ -8,6 +8,8 @@ import {insertProduct} from "../fetch/fetchData"
 
 const AdminPage = ({categories}) => {
 
+    let [products, setProducts] = useState([])
+
     const [formInfo, setFormInfo] = useState({
         title: "",
         category: "",
@@ -21,7 +23,6 @@ const AdminPage = ({categories}) => {
 
     const handleSubmit = async (e) => {
         let isCategory = false;
-        console.log("Start handle")
         e.preventDefault();
         categories.forEach((item) => {
             if (item.key === formInfo.category){
@@ -29,19 +30,14 @@ const AdminPage = ({categories}) => {
             }
         })
         if (!isCategory){
-            console.log("Category NOT found");
             return;
         }
         else{
-            console.log("Category found");
-            const res = await insertProduct(formInfo.title, formInfo.description, formInfo.category, formInfo.price, formInfo.image,formInfo.rate, formInfo.count);
-            console.log("Inside handle: ")
-            console.log(res)
-            console.log("End of handle: ")
+            await insertProduct(formInfo.title, formInfo.desc, formInfo.category, formInfo.price, formInfo.image,formInfo.rate, formInfo.count);
+            window.location.reload()
         }
     }
 
-    let [products, setProducts] = useState([])
 
     useEffect(() => {
         const fetchProductsData = async () => {
