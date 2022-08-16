@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react';
 import './App.css';
-import { fetchData } from './fetch/fetchData';
+import {deleteProduct, fetchData} from './fetch/fetchData';
 import { useState } from 'react';
 import Home from './pages/Home';
 import { Route, Routes } from 'react-router-dom';
@@ -50,8 +50,8 @@ function App() {
   }, [])
 
 
-  const deleteOrder = (id) => {
-    setCart(cart.filter(order => order.productId !== id));
+  const deleteOrder = async (id) => {
+      setCart(cart.filter(order => order.productId !== id));
   }
 
   const addToCart = (product) => {
@@ -61,11 +61,22 @@ function App() {
     }
     setCart([...cart, product]);
   }
-  const deleteItem = (item) => {
-      deleteOrder(item.productId);
-      setProducts(products.filter(product => item.productId !== product.productId))
-      return
+
+  const deleteItem = async (id) => {
+      console.log("BEFORE")
+      console.log(id)
+      console.log(products)
+      console.log(cart)
+      setCart(cart.filter(order => order.productId !== id));
+      setProducts(products.filter(product => id !== product.productId))
+      await deleteProduct(id);
+      console.log("AFTER")
+      console.log(id)
+      console.log(products)
+      console.log(cart)
+
   }
+
   return (
     <>
       <Header/>

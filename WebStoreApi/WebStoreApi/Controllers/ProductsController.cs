@@ -62,5 +62,22 @@ namespace WebStoreApi.Controllers
             {
             }
         }
+
+        [HttpDelete("deleteProduct")]
+        public void DeleteProduct(DeleteProduct deleteProduct)
+        {
+            try
+            {
+                var prodToDelete = ContextProvider.db.Products.FirstOrDefault(p => p.ProductId == deleteProduct.ProductId);
+                if (prodToDelete != null)
+                {
+                    ContextProvider.db.Remove(prodToDelete);
+                }
+                ContextProvider.db.SaveChanges();
+            }
+            catch (Exception)
+            {
+            }
+        }
     }
 }

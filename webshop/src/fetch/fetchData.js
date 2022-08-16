@@ -30,3 +30,12 @@ export const insertProduct = async (title, description, category, price, image,r
     };
     const response = await fetch(`https://localhost:7254/api/Products/newProduct`, requestOptions);
 }
+
+export const deleteProduct = async (id) => {
+    const requestOptions = {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productId: id })
+    };
+    const response = await fetch(`https://localhost:7254/api/Products/deleteProduct`, requestOptions);
+}

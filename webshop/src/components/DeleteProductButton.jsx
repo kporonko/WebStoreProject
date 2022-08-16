@@ -6,7 +6,7 @@ const DeleteProductButton = ({onDelete, itemDescription}) => {
     return (
         <div className='div-center-button'>
             <Button onClick={() => {
-                onDelete(itemDescription)
+                onDelete(itemDescription.productId)
             }} className='button-center red'>
                 <Link to={'/'}>Delete</Link>
             </Button>

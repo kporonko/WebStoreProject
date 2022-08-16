@@ -34,7 +34,7 @@ export default function ItemDescription({isAdmin, onAdd, onDelete}) {
         <div>Items left: {itemDescription.count}</div>
         <div><strong>Price: {itemDescription.price}$</strong></div>   
       </div>
-        {isAdmin ? <DeleteProductButton onDelete={onDelete}/> :
+        {isAdmin ? <DeleteProductButton itemDescription={itemDescription} onDelete={onDelete}/> :
         <AddProductInCartButton onAdd={onAdd} itemDescription={itemDescription}/>}
     </div>
   )
