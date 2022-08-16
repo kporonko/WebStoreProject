@@ -19,7 +19,7 @@ export default function ProductCard({product, onAdd}) {
         </div>
         <div className='description'>
             <span>${product.price}</span>
-            <FaShoppingCart onClick={() => {onAdd(product)}} style={{cursor: 'pointer'}}/>
+            <div className="hover"><FaShoppingCart onClick={() => {onAdd(product)}} style={{cursor: 'pointer'}}/></div>
         </div>
         <h5 style={{marginTop: '5px'}}>{product.category}</h5>
     </div>
