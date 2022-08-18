@@ -8,6 +8,7 @@ import ProductList from '../components/ProductList';
 import SearchProducts from "../components/SearchProducts";
 import Categories from "../components/Categories";
 import ShopDesc from "../components/ShopDesc";
+import PopularProducts from "../components/PopularProducts";
 
 export default function Home({products, categories, onAdd}) {
 
@@ -15,6 +16,7 @@ export default function Home({products, categories, onAdd}) {
     <div>
         <ShopDesc/>
         <SearchProducts onAdd={onAdd} products={products}/>
+        <PopularProducts onAdd={onAdd} products={products} isAdmin={false}/>
         <ProductList categories={categories} onAdd={onAdd} products={products}/>
     </div>
   )

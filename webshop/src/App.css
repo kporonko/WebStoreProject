@@ -383,3 +383,22 @@ footer{
   display: inline!important;
   color: red;
 }
+.popular-header{
+  margin-bottom: 10px;
+  font-size: 40px;
+  margin-left: 20px;
+  font-weight: 600;
+}
+.relative{
+  position: relative;
+}
+.rate-div{
+  position: absolute;
+  color: white;
+  font-size: 22px;
+  background: green;
+  padding: 10px 25px;
+  border-radius: 50px;
+  transform: rotate(-30deg);
+  left: -10px;
+}
