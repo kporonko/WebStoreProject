@@ -62,5 +62,63 @@ namespace WebStoreApi.Controllers
             {
             }
         }
+
+        [HttpDelete("deleteProduct")]
+        public void DeleteProduct(DeleteProduct deleteProduct)
+        {
+            try
+            {
+                var prodToDelete = ContextProvider.db.Products.FirstOrDefault(p => p.ProductId == deleteProduct.ProductId);
+                if (prodToDelete != null)
+                {
+                    ContextProvider.db.Remove(prodToDelete);
+                }
+                ContextProvider.db.SaveChanges();
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        [HttpPut("modifyProduct")]
+        public void ModifyProduct(ModifyProduct modifyProduct)
+        {
+            try
+            {
+                var prodToModify = ContextProvider.db.Products.FirstOrDefault(p => p.ProductId == modifyProduct.ProductId);
+                if (prodToModify != null)
+                {
+                    prodToModify.Category = modifyProduct.Category;
+                    prodToModify.Price = modifyProduct.Price;
+                    prodToModify.Description = modifyProduct.Description;
+                    prodToModify.Image = modifyProduct.Image;
+                    prodToModify.Title = modifyProduct.Title;
+                    ContextProvider.db.Products.Update(prodToModify);
+                }
+                ContextProvider.db.SaveChanges();
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        [HttpPut("buyProducts")]
+        public void BuyProducts(int[] IDs)
+        {
+            try
+            {
+                for (int i = 0; i < IDs.Length; i++)
+                {
+                    var product = ContextProvider.db.Products.FirstOrDefault(p => p.ProductId == IDs[i]);
+                    product.Rating.Count--;
+                    ContextProvider.db.Products.Update(product);
+                }
+
+                ContextProvider.db.SaveChanges();
+            }
+            catch (Exception)
+            {
+            }
+        }
     }
 }

@@ -18,7 +18,6 @@ const AdminPage = ({categories}) => {
         rate: 0,
         image: "",
         desc: "",
-
     })
 
     const handleSubmit = async (e) => {
@@ -37,7 +36,6 @@ const AdminPage = ({categories}) => {
             window.location.reload()
         }
     }
-
 
     useEffect(() => {
         const fetchProductsData = async () => {
@@ -60,7 +58,13 @@ const AdminPage = ({categories}) => {
                     </p>
                     <p>
                         <label htmlFor="">Category</label>
-                        <input onChange={(e) => setFormInfo({...formInfo, category: e.target.value})} type="text" value={formInfo.category}/>
+                        <select name="" id="" onChange={(e) => setFormInfo({...formInfo, category: e.target.value})}>
+                            <option value="electronics">electronics</option>
+                            <option value="men's clothing">men's clothing</option>
+                            <option value="women's clothing">women's clothing</option>
+                            <option value="jewelery">jewelery</option>
+                        </select>
+                        {/*<input onChange={(e) => setFormInfo({...formInfo, category: e.target.value})} type="text" value={formInfo.category}/>*/}
                     </p>
                     <p>
                         <label htmlFor="">Price</label>
@@ -100,8 +104,8 @@ const AdminPage = ({categories}) => {
                 </form>
             </div>
             <div>
-                <SearchProducts products={products} onAdd={()=>{}}/>
-                <ProductList categories={categories} products={products} onAdd={()=>{}}/>
+                <SearchProducts isAdmin={true} products={products} onAdd={()=>{}}/>
+                <ProductList isAdmin={true} categories={categories} products={products} onAdd={()=>{}}/>
             </div>
         </div>
 

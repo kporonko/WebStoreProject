@@ -26,6 +26,7 @@ textarea:focus {
 
 input,
 textarea,
+select,
 button {
     width: 100%;
     border: 1px solid #000;
@@ -80,6 +81,7 @@ form p {
 
 button,
 input,
+select,
 textarea {
     padding: 1em;
 }

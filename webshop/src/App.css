@@ -9,22 +9,23 @@
 body{
   margin: 20px 60px;
 }
-.main{
+.header-div{
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
 }
-.main ul {
+.header-div ul {
   list-style: none;
   display: flex;
   gap: 20px;
   font-size: 20px;
 }
-.main ul li {
+.header-div ul li {
   display: inline-block;
   margin-right: 10px;
   cursor: pointer;
 }
-.main ul li:hover{
+.header-div ul li:hover{
   transform: scale(1.1);
   transition: all 0.5s ease-in-out;
 }
@@ -77,6 +78,7 @@ main{
 }
 .img-div img{
   width: 100%;
+  padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border-radius: 5px 5px 0 0;
   width: 300px;
@@ -252,6 +254,9 @@ span a:hover{
   min-height: 200px;
   border-radius: 30px;
 }
+.cart-desc{
+  min-width: 83%;
+}
 .cart-desc h2{
   font-size: 32px;
   margin-bottom: 10px;
@@ -278,7 +283,8 @@ footer{
   text-align: center;
   margin-top: 20px;
 }
-.button-delete{
+.cart-desc .button-delete{
+  padding: 10px 0;
   font-size: large;
   float: right;
   margin-right: 15px;
@@ -286,10 +292,9 @@ footer{
   background: rgb(226, 8, 8);
   border: none;
   cursor: pointer;
-  padding: 3px 5px;
   border-radius: 5px;
 }
-.button-delete:hover{
+.cart-desc .button-delete:hover{
   background: red;
   transform: scale(1.1);
   transition: all 0.5s ease-in-out;
@@ -365,4 +370,56 @@ footer{
   padding: 10px 20px;
   cursor: pointer;
   border: 1px solid transparent;
+}
+.div-price-green{
+  display: inline!important;
+  font-weight: 600;
+  color: green;
+}
+.div-price-yellow{
+  font-weight: 600;
+  display: inline!important;
+  color: #ecec23;
+}
+.div-price-red{
+  font-weight: 600;
+  display: inline!important;
+  color: red;
+}
+.popular-header{
+  margin-bottom: 10px;
+  font-size: 40px;
+  margin-left: 20px;
+  font-weight: 600;
+}
+.relative{
+  position: relative;
+}
+.rate-div{
+  position: absolute;
+  color: white;
+  font-size: 22px;
+  background: green;
+  padding: 10px 25px;
+  border-radius: 50px;
+  transform: rotate(-30deg);
+  left: -10px;
+}
+.black-background{
+  background-color: black;
+}
+.gray-background{
+  background-color: gray;
+}
+.black-background:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: all 1s ease;
+  color: black;
+  background-color: #eae7e7;
+  border: 1px solid black;
+}
+.gray-background:hover{
+  background-color: gray;
+  cursor: auto;
 }

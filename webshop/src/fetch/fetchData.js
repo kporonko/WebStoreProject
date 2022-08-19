@@ -30,3 +30,30 @@ export const insertProduct = async (title, description, category, price, image,r
     };
     const response = await fetch(`https://localhost:7254/api/Products/newProduct`, requestOptions);
 }
+
+export const deleteProduct = async (id) => {
+    const requestOptions = {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productId: id })
+    };
+    const response = await fetch(`https://localhost:7254/api/Products/deleteProduct`, requestOptions);
+}
+export const modifyProduct = async ( productId, title, description, category, price, image) => {
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({productId: productId, title: title, description: description, category: category, price: price, image: image })
+    };
+    const response = await fetch(`https://localhost:7254/api/Products/modifyProduct`, requestOptions);
+}
+export const buyProducts = async (cart) => {
+    let IDs = cart.map(prod => prod.productId)
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(IDs)
+    };
+    const response = await fetch(`https://localhost:7254/api/Products/buyProducts`, requestOptions);
+    return response.status;
+}
