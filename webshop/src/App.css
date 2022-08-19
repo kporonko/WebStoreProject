@@ -254,6 +254,9 @@ span a:hover{
   min-height: 200px;
   border-radius: 30px;
 }
+.cart-desc{
+  min-width: 83%;
+}
 .cart-desc h2{
   font-size: 32px;
   margin-bottom: 10px;
@@ -401,4 +404,22 @@ footer{
   border-radius: 50px;
   transform: rotate(-30deg);
   left: -10px;
+}
+.black-background{
+  background-color: black;
+}
+.gray-background{
+  background-color: gray;
+}
+.black-background:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: all 1s ease;
+  color: black;
+  background-color: #eae7e7;
+  border: 1px solid black;
+}
+.gray-background:hover{
+  background-color: gray;
+  cursor: auto;
 }
