@@ -82,7 +82,7 @@ function App() {
         <Route path="/admin/item/:id" element={<ItemDescription isAdmin={true} onAdd={()=>{}} onDelete={deleteItem} />} />
         <Route path="/authorization" element={<Authorization />}/>
         <Route path="/admin" element={<AdminPage categories={categories}/>}/>
-        <Route path="/payment" element={<MainScreen />}/>
+        <Route path="/payment" element={<MainScreen cart={cart}/>}/>
       </Routes>
       <Footer/>
     </>

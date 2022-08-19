@@ -101,5 +101,24 @@ namespace WebStoreApi.Controllers
             {
             }
         }
+
+        [HttpPut("buyProducts")]
+        public void BuyProducts(int[] IDs)
+        {
+            try
+            {
+                for (int i = 0; i < IDs.Length; i++)
+                {
+                    var product = ContextProvider.db.Products.FirstOrDefault(p => p.ProductId == IDs[i]);
+                    product.Rating.Count--;
+                    ContextProvider.db.Products.Update(product);
+                }
+
+                ContextProvider.db.SaveChanges();
+            }
+            catch (Exception)
+            {
+            }
+        }
     }
 }

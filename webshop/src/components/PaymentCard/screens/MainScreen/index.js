@@ -2,6 +2,8 @@ import React, { useState, useRef, useCallback } from 'react';
 import CForm from './components/form';
 import Card from './components/card';
 import '../../App.scss'
+import {Link, useNavigate} from "react-router-dom";
+import {buyProducts} from "../../../../fetch/fetchData";
 const initialState = {
     cardNumber: '#### #### #### ####',
     cardHolder: 'FULL NAME',
@@ -11,7 +13,7 @@ const initialState = {
     isCardFlipped: false
 };
 
-const MainScreen = () => {
+const MainScreen = ({cart}) => {
     const [state, setState] = useState(initialState);
     const [currentFocusedElm, setCurrentFocusedElm] = useState(null);
 
@@ -53,6 +55,20 @@ const MainScreen = () => {
         setCurrentFocusedElm(null);
     }, []);
 
+    let nav = useNavigate();
+
+    const submit = async () => {
+        console.log(cart)
+        let code = await buyProducts(cart);
+        if (code === 200){
+            alert("Thank You For The Purchase!")
+        }
+        else{
+            alert("Something Went Wrong")
+        }
+        nav("/")
+    }
+
     return (
         <div className="wrapper-payment">
             <CForm
@@ -79,6 +95,14 @@ const MainScreen = () => {
                     cardDateRef={cardElementsRef.cardDate}
                 ></Card>
             </CForm>
+                <div
+                    style={{display: 'flex', justifyContent: 'center', marginBottom: '20px'}}>
+                    <button
+                        onClick={submit}
+                        style={{marginTop: '20px'}}
+                        className="black-background">Submit
+                    </button>
+                </div>
         </div>
     );
 };
