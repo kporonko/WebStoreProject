@@ -18,7 +18,6 @@ const AdminPage = ({categories}) => {
         rate: 0,
         image: "",
         desc: "",
-
     })
 
     const handleSubmit = async (e) => {
@@ -37,7 +36,6 @@ const AdminPage = ({categories}) => {
             window.location.reload()
         }
     }
-
 
     useEffect(() => {
         const fetchProductsData = async () => {

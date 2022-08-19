@@ -79,5 +79,27 @@ namespace WebStoreApi.Controllers
             {
             }
         }
+
+        [HttpPut("modifyProduct")]
+        public void ModifyProduct(ModifyProduct modifyProduct)
+        {
+            try
+            {
+                var prodToModify = ContextProvider.db.Products.FirstOrDefault(p => p.ProductId == modifyProduct.ProductId);
+                if (prodToModify != null)
+                {
+                    prodToModify.Category = modifyProduct.Category;
+                    prodToModify.Price = modifyProduct.Price;
+                    prodToModify.Description = modifyProduct.Description;
+                    prodToModify.Image = modifyProduct.Image;
+                    prodToModify.Title = modifyProduct.Title;
+                    ContextProvider.db.Products.Update(prodToModify);
+                }
+                ContextProvider.db.SaveChanges();
+            }
+            catch (Exception)
+            {
+            }
+        }
     }
 }
