@@ -30,7 +30,12 @@ const PopularProducts = ({onAdd, products, isAdmin}) => {
             {
                 popularProducts.every(IsRating) && <main>
                 {popularProducts.length > 0 ? popularProducts.sort((prod1, prod2) => {
-                    return prod1.rating.rate - prod2.rating.rate;
+                    if (prod1.rating.rate === prod2.rating.rate){
+                        return prod1.price - prod2.price;
+                    }
+                    else{
+                        return prod1.rating.rate - prod2.rating.rate;
+                    }
                 }).reverse().slice(0,9).map(product => (
                     <PopularProductCard isAdmin={isAdmin} onAdd={onAdd} key={product.productId} product={product}/>
                 )) : <div>Loading...</div>}
